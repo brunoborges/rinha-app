@@ -1,0 +1,36 @@
+### Create one record
+
+POST http://localhost:9999/pessoas HTTP/1.1
+Content-Type: application/json
+
+{"apelido": "NODaaasdadYnDlTG", "nome": " bikogvSVZSx qphvZskUGNRSMUz DYRUOkONAXttmNjnGltpE ", "nascimento": "1945-11-20", "stack": ["Postgres", "Swift", "Kotlin", "R", "C#", "Go", "Perl", "MySQL", "Clojure", "CSS", "Scala", "C", "HTML", "R", "Swift", "CSS", "Java", "Javascript", "SQL", "MySQL", "Java"]}
+
+
+### Apelido too long (>32)
+
+POST http://localhost:8080/pessoas HTTP/1.1
+Content-Type: application/json
+
+{"apelido": "NODaadajkdahsidhsauidhsauidhasuihduaishdYnDlTG", "nome": " bikogvSVZSx qphvZskUGNRSMUz DYRUOkONAXttmNjnGltpE ", "nascimento": "1945-11-20", "stack": ["Postgres", "Swift", "Kotlin", "R", "C#", "Go", "Perl", "MySQL", "Clojure", "CSS", "Scala", "C", "HTML", "R", "Swift", "CSS", "Java", "Javascript", "SQL", "MySQL", "Java"]}
+
+### Get one record
+
+GET http://localhost:8080/pessoa/86c70bbf-8187-4580-857e-c56d24da250f HTTP/1.1
+
+### Get refcord that doesnt exist
+
+GET http://localhost:8080/pessoa/1 HTTP/1.1
+
+
+### Find records by termo
+
+GET http://localhost:8080/pessoas/?t=Java HTTP/1.1
+
+### Find records by termo
+
+GET http://localhost:8080/pessoas/?t= HTTP/1.1
+
+
+### Contagem
+
+GET http://localhost:8080/contagem-pessoas HTTP/1.1
