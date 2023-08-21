@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -19,13 +21,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-  test:
-    runs-on: ubuntu-20.04
-    needs: build
-    permissions:
-      contents: write
-    steps:
-    - uses: actions/checkout@v3
     - run: |
         echo ${{ github.repository_owner }}
         echo ${{ github.repository }}
