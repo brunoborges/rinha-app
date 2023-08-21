@@ -26,6 +26,7 @@ jobs:
         echo ${{ github.repository }}
         echo "GH_USERNAME=$(echo ${{ github.repository }} | cut -d "/" -f 1)" >> $GITHUB_ENV
         echo "GH_REPO=$(echo ${{ github.repository }} | cut -d "/" -f 2)" >> $GITHUB_ENV
+        echo "GH_COMMIT=${{ github.sha }}" >> $GITHUB_ENV
     - run: |
         echo ${{ env.GH_REPO }}
         echo ${{ env.GH_USERNAME }}
@@ -42,6 +43,9 @@ jobs:
       env:
         WORKSPACE: ${{ github.workspace }}/rinha-de-backend-2023-q3/stress-test
     - run: echo ${{ env.GATLING_OUTPUT_FOLDER }}
+    - run: |
+        # replace string DESCRICAO with the commit sha in file index.html inside GATLING OUTPUT FOLDER
+        sed -i "s/DESCRICAO/${{ env.GH_COMMIT }}/g" ${{ github.workspace }}/rinha-de-backend-2023-q3/stress-test/user-files/results/${{ env.GATLING_OUTPUT_FOLDER }}/index.html
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
