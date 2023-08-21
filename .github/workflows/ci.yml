@@ -20,7 +20,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
     - name: Build
-      run: docker build -f src/main/docker/Docker.jvm -t brunoborges/rinha-brborges-api .
+      run: docker build -f src/main/docker/Dockerfile.jvm -t brunoborges/rinha-brborges-api .
   test:
     runs-on: ubuntu-20.04
     needs: build
