@@ -29,7 +29,7 @@ jobs:
     - run: |
         echo ${{ env.GH_REPO }}
         echo ${{ env.GH_USERNAME }}
-    - run: docker compose -f docker-compose-local.yml up -d --wait
+    - run: docker compose -f docker-compose-local.yml up --build --force-recreate -d --wait
     - name: Load test
       run: |
         git clone --single-branch --quiet https://github.com/zanfranceschi/rinha-de-backend-2023-q3
