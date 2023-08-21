@@ -3,7 +3,7 @@ name: 'rinha-brunoborges'
 
 services:
   api1:
-    image: brunoborges/rinha-brborges-api
+    image: brunoborges/rinha-brborges-api:latest
     hostname: api1
     environment:
       - SERVER_PORT=8080
@@ -20,19 +20,19 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
+          cpus: '0.5'
           memory: '960MB'
     networks:
       - app-network
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:8080/contagem-pessoas || exit 1
       interval: 10s
-      retries: 5
+      retries: 60
       start_period: 20s
       timeout: 5s
 
   api2:
-    image: brunoborges/rinha-brborges-api
+    image: brunoborges/rinha-brborges-api:latest
     hostname: api2
     environment:
       - SERVER_PORT=8080
@@ -51,14 +51,14 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.3'
+          cpus: '0.5'
           memory: '960MB'
     networks:
         - app-network
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:8080/contagem-pessoas || exit 1
       interval: 10s
-      retries: 5
+      retries: 60
       start_period: 20s
       timeout: 5s
 
@@ -96,7 +96,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.8'
+          cpus: '0.4'
           memory: '1GB'
     networks:
       - app-network

@@ -10,5 +10,8 @@ COPY --chown=185 target/quarkus-app/quarkus/ /deployments/quarkus/
 
 EXPOSE 8080
 USER 185
-ENV JAVA_OPTS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:MaxRAMPercentage=70"
+
+ENV QUARKUS_VERTX_MAX_EVENT_LOOP_EXECUTE_TIME=30S
+
+ENV JAVA_OPTS="-Djava.security.egd=file:/dev/urandom -Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -XX:MaxRAMPercentage=70 -Dorg.jooq.no-tips=false"
 ENV JAVA_APP_JAR="/deployments/quarkus-run.jar"
