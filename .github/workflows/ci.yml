@@ -19,8 +19,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
-    - name: Build
-      run: docker build -f src/main/docker/Dockerfile.jvm -t brunoborges/rinha-brborges-api .
   test:
     runs-on: ubuntu-20.04
     needs: build
@@ -36,7 +34,7 @@ jobs:
     - run: |
         echo ${{ env.GH_REPO }}
         echo ${{ env.GH_USERNAME }}
-    - run: docker compose up -d
+    - run: docker compose -f docker-compose-local.yml up -d --wait
     - name: Load test
       run: |
         git clone --single-branch --quiet https://github.com/zanfranceschi/rinha-de-backend-2023-q3
