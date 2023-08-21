@@ -97,6 +97,17 @@ Accesse por [http://localhost:8080/contagem-pessoas](http://localhost:8080/conta
 
 O código está no GitHub, no repositório [brunoborges/rinha-app](https://github.com/brunoborges/rinha-app).
 
+## Resultados
+
+Até o momento, o melhor resultado foi no meu MacBook M1:
+
+<img width="1047" alt="image" src="https://github.com/brunoborges/rinha-app/assets/129743/d588df9b-5c96-4024-8600-b362dcf137ac">
+
+Outros resultados executados via GitHub Actions:
+
+- https://brunoborges.github.io/rinha-app/rinhabackendsimulation-20230821063351093/
+  https://brunoborges.github.io/rinha-app/rinhabackendsimulation-20230821064423827/
+
 ## Autor
 
 Bruno Borges ([@brunoborges](https://twitter.com/brunoborges)).
