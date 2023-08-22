@@ -28,7 +28,7 @@ services:
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:8080/contagem-pessoas || exit 1
       interval: 10s
-      retries: 5
+      retries: 60
       start_period: 20s
       timeout: 5s
 
@@ -60,7 +60,7 @@ services:
     healthcheck:
       test: curl -o /dev/null -s --retry 0 --head http://localhost:8080/contagem-pessoas || exit 1
       interval: 10s
-      retries: 5
+      retries: 60
       start_period: 20s
       timeout: 5s
 
