@@ -81,7 +81,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.15'
           memory: '128MB'
 
   db-postgresql:
@@ -100,7 +100,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.8'
+          cpus: '0.75'
           memory: '1GB'
     networks:
       - app-network

@@ -3,7 +3,7 @@ WORKSPACE=$(pwd)/rinha-de-backend-2023-q3/stress-test/user-files
 
 if [ ! -d "rinha-de-backend-2023-q3" ]; then
     echo "rinha-de-backend-2023-q3 not found. Downloading..."
-    git clone --single-branch --quiet https://github.com/zanfranceschi/rinha-de-backend-2023-q3
+    git clone --depth=1 --branch=main --quiet https://github.com/zanfranceschi/rinha-de-backend-2023-q3
 else
     echo "rinha-de-backend-2023-q3 found. Updating..."
     cd rinha-de-backend-2023-q3
