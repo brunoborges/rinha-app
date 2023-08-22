@@ -3,7 +3,7 @@ name: 'rinha-brunoborges'
 
 services:
   api1:
-    image: brunoborges/rinha-brborges-api:arm64
+    image: docker.io/brunoborges/rinha-brborges-api:arm64
     platform: linux/arm64
     hostname: api1
     environment:
@@ -33,7 +33,7 @@ services:
       timeout: 5s
 
   api2:
-    image: brunoborges/rinha-brborges-api:arm64
+    image: docker.io/brunoborges/rinha-brborges-api:arm64
     platform: linux/arm64
     hostname: api2
     environment:

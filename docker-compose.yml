@@ -3,7 +3,7 @@ name: 'rinha-brunoborges'
 
 services:
   api1:
-    image: brunoborges/rinha-brborges-api:latest
+    image: docker.io/brunoborges/rinha-brborges-api:latest
     hostname: api1
     environment:
       - SERVER_PORT=8080
@@ -20,7 +20,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.4'
           memory: '960MB'
     networks:
       - app-network
@@ -32,7 +32,7 @@ services:
       timeout: 5s
 
   api2:
-    image: brunoborges/rinha-brborges-api:latest
+    image: docker.io/brunoborges/rinha-brborges-api:latest
     hostname: api2
     environment:
       - SERVER_PORT=8080
@@ -51,7 +51,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '0.4'
           memory: '960MB'
     networks:
         - app-network
@@ -96,7 +96,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.4'
+          cpus: '0.6'
           memory: '1GB'
     networks:
       - app-network
