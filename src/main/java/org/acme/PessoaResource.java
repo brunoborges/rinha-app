@@ -27,6 +27,9 @@ public class PessoaResource {
     @Inject
     DSLContext dsl;
 
+    @Inject
+    LocalCache cache;
+
     @GET
     @Path("/pessoas")
     @Produces(MediaType.APPLICATION_JSON)
@@ -83,6 +86,8 @@ public class PessoaResource {
                 .set(record)
                 .execute();
 
+        cache.addApelido(pessoa.getApelido());
+
         return Response.status(Status.CREATED).entity(pessoa)
                 .header("Location", "/pessoa/" + pessoa.getId().toString()).build();
     }
@@ -123,6 +128,10 @@ public class PessoaResource {
     }
 
     private boolean pessoaByApelidoExists(String apelido) {
+        if (cache.containsApelido(apelido)) {
+            return true;
+        }
+
         return dsl.fetchExists(dsl.selectFrom(PESSOAS)
                 .where(PESSOAS.APELIDO.eq(apelido)));
     }
