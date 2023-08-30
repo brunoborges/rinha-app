@@ -26,9 +26,14 @@ CREATE TABLE PUBLIC."PESSOAS" (
     primary key ("ID")
 );
 
-CREATE EXTENSION IF NOT EXISTS pg_trgm SCHEMA pg_catalog; 
+--CREATE EXTENSION IF NOT EXISTS pg_trgm SCHEMA pg_catalog; 
 
-CREATE INDEX idx_pessoas_apelido_trgm ON PUBLIC."PESSOAS" USING gin("APELIDO" gin_trgm_ops);
-CREATE INDEX idx_pessoas_nome_trgm ON PUBLIC."PESSOAS" USING gin("NOME" gin_trgm_ops);
+--CREATE INDEX idx_pessoas_apelido_trgm ON PUBLIC."PESSOAS" USING gin("APELIDO" gin_trgm_ops);
+--CREATE INDEX idx_pessoas_nome_trgm ON PUBLIC."PESSOAS" USING gin("NOME" gin_trgm_ops);
+--CREATE INDEX idx_pessoas_stack_trgm ON PUBLIC."PESSOAS" USING gin("STACK" gin_trgm_ops);
+--CREATE INDEX idx_pessoas_search_trgm ON PUBLIC."PESSOAS" USING gin("SEARCH" gin_trgm_ops);
+--CREATE INDEX idx_pessoas_search_trgm ON PUBLIC."PESSOAS" USING gin(lower("APELIDO") gin_trgm_ops, lower("NOME") gin_trgm_ops, lower("STACK") gin_trgm_ops);
+
+--CREATE INDEX idx_pessoas_search_trgm ON PUBLIC."PESSOAS" USING gin(("APELIDO" || "NOME" || "STACK") gin_trgm_ops);
 
 ALTER TABLE PUBLIC."PESSOAS" OWNER TO rinha;

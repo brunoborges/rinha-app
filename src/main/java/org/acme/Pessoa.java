@@ -1,22 +1,22 @@
 package org.acme;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Pessoa {
     
-    private UUID id;
+    private String id;
     private String apelido;
     private String nome;
     private String nascimento;
-    private List<String> stack;
+    private List<String> stack = Collections.emptyList();
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,6 +49,9 @@ public class Pessoa {
     }
 
     public void setStack(List<String> stack) {
+        if (stack == null) {
+            stack = Collections.emptyList();
+        }
         this.stack = stack;
     }
 
@@ -65,6 +68,16 @@ public class Pessoa {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public String toJSONString() {
+        return "{" +
+                "\"id\":\"" + id + "\"," +
+                "\"apelido\":\"" + apelido + "\"," +
+                "\"nome\":\"" + nome + "\"," +
+                "\"nascimento\":\"" + nascimento + "\"," +
+                "\"stack\":" + stack +
+                '}';
     }
 
     @Override

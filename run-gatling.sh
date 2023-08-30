@@ -25,3 +25,7 @@ cd gatling-charts-highcharts-bundle-3.9.5
 echo GATLING_OUTPUT_FOLDER=$(ls $WORKSPACE/results | sort | head -n 1)
 
 cd ..
+
+curl -i http://localhost:9999/contagem-pessoas
+
+echo "\nEOF"
